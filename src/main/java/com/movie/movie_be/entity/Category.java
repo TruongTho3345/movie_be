@@ -11,22 +11,13 @@ import java.util.List;
 @Data
 @AllArgsConstructor //Cấp cho tao 1 constructor full tham số
 @NoArgsConstructor
-public class Movie {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String name;
-    private String image;
-    private String actorName;
-    private int year;
 
-    @ManyToOne
-    @JoinColumn(name = "director_id")
-    Information director;
-
-    @ManyToMany
-    List<Information> actors;
-
-    @ManyToMany
-    List<Category> categories;
+    @ManyToMany(mappedBy = "categories")
+    List<Movie> movies;
 }

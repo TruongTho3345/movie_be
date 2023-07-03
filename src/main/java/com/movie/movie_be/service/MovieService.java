@@ -21,6 +21,10 @@ public class MovieService {
         Movie newMovie = movieRepository.save(movie);
         return newMovie;
     }
+    public List<Movie> postMovies(List<Movie> movies){
+        List<Movie> newMovies = movieRepository.saveAll(movies);
+        return newMovies;
+    }
 
     public Movie getMovieDetailById(long movieId){
         Movie newMovie = movieRepository.findMovieById(movieId);
